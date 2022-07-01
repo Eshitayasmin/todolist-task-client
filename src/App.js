@@ -7,6 +7,8 @@ import ToDo from './Components/ToDo/ToDo';
 import EditTodo from './Components/ToDo/EditTodo';
 import Home from './Components/Home/Home';
 import CompletedTasks from './Components/CompletedTasks/CompletedTasks';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
           <Route path='/edit:id' element={<EditTodo></EditTodo>}></Route>
          
      </Routes>
+     <ToastContainer></ToastContainer>
     </div>
   );
 }

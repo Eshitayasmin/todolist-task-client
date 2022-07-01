@@ -7,8 +7,8 @@ const Calender = () => {
     const [date, setDate] = useState(new Date());
     return (
         <div className=' bg-zinc-100 py-8'>
-           <div className='flex justify-center pt-12'>
-         <div className='bg-red-200 px-12 lg:px-36 py-4 lg:py-6 rounded-lg'>
+           <div className='flex justify-center pt-6 lg:pt-12'>
+         <div className='bg-red-200  px-4 lg:px-12 lg:px-36 py-4 lg:py-6 rounded-lg'>
          <DayPicker 
             mode="single"
             selected={date}

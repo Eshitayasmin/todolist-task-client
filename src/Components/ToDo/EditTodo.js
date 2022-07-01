@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'
 
 const EditTodo = ({completed, setCompleted}) => {
     const { id } = useParams();
@@ -7,7 +8,7 @@ const EditTodo = ({completed, setCompleted}) => {
     console.log(id);
     const [task, setTask] = useState({});
     useEffect(() => {
-        const url = `https://agile-atoll-20810.herokuapp.com/todo/${id}`;
+        const url = `http://localhost:5000/todo/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTask(data));
@@ -24,7 +25,7 @@ const EditTodo = ({completed, setCompleted}) => {
 
         setTask('');
 
-        const url = `https://agile-atoll-20810.herokuapp.com/todo/${id}`;
+        const url = `http://localhost:5000/todo/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -34,12 +35,11 @@ const EditTodo = ({completed, setCompleted}) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('success', data);
-                alert('Task Edited successfully!!!');
+                toast('Task Edited successfully!!!');
                 e.target.reset();
             })
 
-        navigate('/');   
+        navigate('/toDo');   
 
     }
     

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Calender from '../Calender/Calender';
 import CompletedTasks from '../CompletedTasks/CompletedTasks';
-import Completed from '../ToDo/Completed';
-import ToDo from '../ToDo/ToDo';
+import Footer from './Footer';
 
 const Home = () => {
 
@@ -10,6 +9,7 @@ const Home = () => {
         <div>
             <Calender></Calender>
             <CompletedTasks></CompletedTasks>
+            <Footer></Footer>
            
             
         </div>

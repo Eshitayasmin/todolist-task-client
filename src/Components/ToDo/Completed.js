@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import SingleComplete from './SingleComplete';
 
 const Completed = () => {
+
     const [completed, setCompleted] = useState([]);
     useEffect( () =>{
-        fetch(`https://agile-atoll-20810.herokuapp.com/complete`, {
+        fetch(`http://localhost:5000/complete`, {
             method: 'GET',
             headers: {
                 'content-type' : 'application/json',
@@ -20,7 +21,9 @@ const Completed = () => {
     
     return (
         <div>
+           
            <div >
+        
            {
                 completed.map((task, index) => <SingleComplete 
                 key={task._id} task={task}
