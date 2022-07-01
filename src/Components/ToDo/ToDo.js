@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import Completed from './Completed';
+import SingleTodo from './SingleTodo';
 
 const ToDo = () => {
     const [todos, setTodos] = useState([]);
     const [todo, setTodo] = useState('');
+    const [completed, setCompleted] = useState([]);
+  
 
    
     useEffect( () =>{
@@ -19,13 +23,48 @@ const ToDo = () => {
       
     }, []);
 
+    const handleCompleted = (selectedTodo) =>{
+        const exists = completed.find(product => product.id === selectedTodo.id);
+        
+   console.log(selectedTodo);
+        if(!exists){
+         const newCompleted = [...completed, selectedTodo];
+         setCompleted(newCompleted);
+            
+        }
+        else{
+          alert('This item already completed');
+        }
+    
+        const completeTodo = {
+            task: selectedTodo.task,
+            completed: true
+        }
+     
+        setTodo('');
+
+        fetch('http://localhost:5000/complete', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(completeTodo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('post completed', data);
+              
+            })
+       }
+
+
     const handleSubmit = e => {
         e.preventDefault();
 
         const newTodo = {
             id: new Date().getTime(),
             task: todo,
-            completed: false
+            completed: ''
         }
         setTodos([...todos].concat(newTodo));
         setTodo('');
@@ -52,7 +91,7 @@ const ToDo = () => {
       }
     };
 
-
+console.log(todos);
     return (
         <div className='text-center pt-12'>
             <form onSubmit={handleSubmit}>
@@ -61,8 +100,18 @@ const ToDo = () => {
                 
             </form>
             {
-                todos.map(todo =><p key="todo.id">{todo.task}</p>)
+                todos.map(todo =><SingleTodo 
+                    key={todo._id}
+                    todo={todo}
+                    handleCompleted={handleCompleted}></SingleTodo>)
             }
+
+            <div>
+                <h1>Completed Task</h1>
+                {
+                    <Completed completed={completed}></Completed>
+                }
+            </div>
         </div>
     );
 };

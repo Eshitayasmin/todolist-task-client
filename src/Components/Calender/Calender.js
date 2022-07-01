@@ -6,7 +6,7 @@ import 'react-day-picker/dist/style.css';
 const Calender = () => {
     const [date, setDate] = useState(new Date());
     return (
-        <div className='w-screen h-screen bg-zinc-100'>
+        <div className=' bg-zinc-100'>
            <div className='flex justify-center pt-12'>
          <div className='bg-red-200 px-12 lg:px-36 py-4 lg:py-6 rounded-lg'>
          <DayPicker 
