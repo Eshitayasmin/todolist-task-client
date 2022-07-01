@@ -129,16 +129,20 @@ const ToDo = () => {
     return (
         <div className='text-center pt-12'>
             <form onSubmit={handleSubmit}>
-                <input onChange={(e) => setTodo(e.target.value)} onKeyPress={handleKeypress} value={todo} id="task" type="text" name='task' placeholder="Add a task" className="input input-bordered input-warning w-full max-w-xs" />
-                {/* <button type="submit" class="btn btn-active btn-primary">Button</button> */}
+                <input onChange={(e) => setTodo(e.target.value)} onKeyPress={handleKeypress} value={todo} id="task" type="text" name='task' placeholder="Add a task" className="input input-bordered input-warning w-9/12 lg:w-full max-w-xs" />
+               
 
             </form>
-            {
+           
+          <div className='mt-3'>
+          {
                 todos.map(todo => <SingleTodo
                     key={todo._id}
                     todo={todo}
                     handleCompleted={handleCompleted}></SingleTodo>)
             }
+          
+          </div>
 
             <ToastContainer
             ></ToastContainer>
