@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Completed from './Completed';
 import SingleTodo from './SingleTodo';
+
 
 const ToDo = () => {
     const [todos, setTodos] = useState([]);
@@ -10,7 +10,7 @@ const ToDo = () => {
 
    
     useEffect( () =>{
-        fetch(`http://localhost:5000/todo`, {
+        fetch(`https://agile-atoll-20810.herokuapp.com/todo`, {
             method: 'GET',
             headers: {
                 'content-type' : 'application/json',
@@ -23,27 +23,22 @@ const ToDo = () => {
       
     }, []);
 
+   
+
     const handleCompleted = (selectedTodo) =>{
         const exists = completed.find(product => product.id === selectedTodo.id);
         
-   console.log(selectedTodo);
         if(!exists){
          const newCompleted = [...completed, selectedTodo];
          setCompleted(newCompleted);
-            
-        }
-        else{
-          alert('This item already completed');
-        }
-    
-        const completeTodo = {
+         const completeTodo = {
             task: selectedTodo.task,
             completed: true
         }
      
         setTodo('');
 
-        fetch('http://localhost:5000/complete', {
+        fetch('https://agile-atoll-20810.herokuapp.com/complete', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -55,6 +50,10 @@ const ToDo = () => {
                 console.log('post completed', data);
               
             })
+            
+        }
+      
+       
        }
 
 
@@ -69,7 +68,7 @@ const ToDo = () => {
         setTodos([...todos].concat(newTodo));
         setTodo('');
 
-        fetch('http://localhost:5000/todo', {
+        fetch('https://agile-atoll-20810.herokuapp.com/todo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -106,12 +105,7 @@ console.log(todos);
                     handleCompleted={handleCompleted}></SingleTodo>)
             }
 
-            <div>
-                <h1>Completed Task</h1>
-                {
-                    <Completed completed={completed}></Completed>
-                }
-            </div>
+           
         </div>
     );
 };
