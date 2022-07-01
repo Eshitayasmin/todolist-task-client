@@ -18,7 +18,7 @@ const Navbar = () => {
        {navInfo}
       </ul>
     </div>
-    <Link to="/" class="btn btn-ghost normal-case text-2xl text-zinc-600">Job Task</Link>
+    <Link to="/" class="btn btn-ghost normal-case text-2xl text-zinc-600">Task Manager</Link>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
