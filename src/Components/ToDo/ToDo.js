@@ -11,7 +11,7 @@ const ToDo = () => {
     const [completed, setCompleted] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/todo`, {
+        fetch(`https://agile-atoll-20810.herokuapp.com/todo`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -25,7 +25,7 @@ const ToDo = () => {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/complete`, {
+        fetch(`https://agile-atoll-20810.herokuapp.com/complete`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -45,7 +45,7 @@ const ToDo = () => {
 
         if (!exists) {
 
-            fetch('http://localhost:5000/complete', {
+            fetch('https://agile-atoll-20810.herokuapp.com/complete', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -66,7 +66,7 @@ const ToDo = () => {
         }
 
 
-        const url = `http://localhost:5000/todo/${selectedTodo?._id}`;
+        const url = `https://agile-atoll-20810.herokuapp.com/todo/${selectedTodo?._id}`;
         console.log("url is", url);
         fetch(url, {
             method: 'DELETE'
@@ -103,7 +103,7 @@ const ToDo = () => {
         setTodos([...todos].concat(newTodo));
         setTodo('');
 
-        fetch('http://localhost:5000/todo', {
+        fetch('https://agile-atoll-20810.herokuapp.com/todo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

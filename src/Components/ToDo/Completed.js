@@ -5,7 +5,7 @@ const Completed = () => {
 
     const [completed, setCompleted] = useState([]);
     useEffect( () =>{
-        fetch(`http://localhost:5000/complete`, {
+        fetch(`https://agile-atoll-20810.herokuapp.com/complete`, {
             method: 'GET',
             headers: {
                 'content-type' : 'application/json',

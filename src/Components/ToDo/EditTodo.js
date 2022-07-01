@@ -8,7 +8,7 @@ const EditTodo = ({completed, setCompleted}) => {
     console.log(id);
     const [task, setTask] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/todo/${id}`;
+        const url = `https://agile-atoll-20810.herokuapp.com/todo/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTask(data));
@@ -25,7 +25,7 @@ const EditTodo = ({completed, setCompleted}) => {
 
         setTask('');
 
-        const url = `http://localhost:5000/todo/${id}`;
+        const url = `https://agile-atoll-20810.herokuapp.com/todo/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

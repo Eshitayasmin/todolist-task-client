@@ -4,7 +4,7 @@ const useTodo = id =>{
     const [todoDetail, setTodoDetail] = useState({});
 
     useEffect(() =>{
-        fetch(`http://localhost:5000/todo/${id}`)
+        fetch(`https://agile-atoll-20810.herokuapp.com/todo/${id}`)
         .then(res => res.json())
         .then(data => setTodoDetail(data));
     }, [id]);
