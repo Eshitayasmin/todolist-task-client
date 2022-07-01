@@ -48,7 +48,7 @@ const EditTodo = ({completed, setCompleted}) => {
             <div>
             <h1 className='text-blue-400 text-center text-xl lg:text-2xl mb-3'>Update Your Task</h1>
              <form onSubmit={handleUpdate}>
-               <p className='flex'> <input onChange={(e) => setTask(e.target.value)}  id="task" type="text" name='task' placeholder="Update Task" className="input input-bordered input-warning w-55 lg:w-80 h-8 lg:h-12 max-w-xs" />
+               <p className='flex'> <input onChange={(e) => setTask(e.target.value)}  id="task" type="text" name='task' placeholder="Update Task" className="input input-bordered input-warning w-52 lg:w-80 h-8 lg:h-12 max-w-xs" />
                 <button type="submit" class="btn btn-sm lg:btn-md btn-active btn-primary ml-4">Update</button></p>
                 
             </form>
